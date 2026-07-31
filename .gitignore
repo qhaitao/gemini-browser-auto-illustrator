@@ -8,7 +8,9 @@ __pycache__/
 *$py.class
 
 # Generated content & media files (Do not push raw generated test outputs)
-images/
+images/*
+!images/
+!images/**
 videos/
 prompt/*
 
