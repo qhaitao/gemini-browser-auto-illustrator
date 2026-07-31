@@ -206,9 +206,11 @@ def send_prompt_text(ptext):
     js_send = '''(() => {
         const btns = Array.from(document.querySelectorAll('button'));
         const sendBtn = btns.find(b => {
-            const aria = (b.getAttribute('aria-label') || '').toLowerCase();
-            return (aria.includes('send') || aria.includes('发送') || aria.includes('提交') || aria.includes('输入')) && !b.disabled;
-        }) || document.querySelector('button.send-button') || document.querySelector('.send-button-container button');
+            if (b.disabled) return false;
+            const aria = (b.getAttribute('aria-label') || '').trim().toLowerCase();
+            if (aria.includes('options') || aria.includes('更多') || aria.includes('菜单') || aria.includes('menu')) return false;
+            return (aria === 'send' || aria === '发送' || aria === 'send message' || aria === '发送消息' || aria === '提交' || aria.includes('send prompt') || aria.includes('发送提示词') || b.classList.contains('send-button'));
+        }) || document.querySelector('button[aria-label="发送"]') || document.querySelector('button[aria-label="Send"]') || document.querySelector('button.send-button');
         
         if (sendBtn) {
             sendBtn.click();
