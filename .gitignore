@@ -7,6 +7,14 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Generated content & media files (Do not push raw generated test outputs)
+images/
+videos/
+prompt/*
+
+# Unignore clean sample prompt template
+!prompt/20260731_0958_新中式极简折枝水墨_绝句黄鹂白鹭重做_3图提示词.md
+
 # OS generated files
 .DS_Store
 Thumbs.db
