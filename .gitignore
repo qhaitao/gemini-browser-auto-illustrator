@@ -1,0 +1,16 @@
+# Temporary lock files
+.gemini_runner.lock
+*.lock
+
+# Python cache & bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# User data / scratch
+.idea/
+.vscode/
