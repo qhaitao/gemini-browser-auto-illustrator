@@ -141,13 +141,14 @@ def main():
 import sys, time, json
 
 tabs = list_tabs()
-gemini_tab = next((t for t in reversed(tabs) if "gemini.google.com" in t.get("url", "")), None)
-if not gemini_tab:
+# 支持自动匹配 Google Labs Flow 页面 或 Gemini 页面
+target_tab = next((t for t in reversed(tabs) if 'labs.google' in t.get('url', '') or 'flow' in t.get('url', '') or 'gemini.google.com' in t.get('url', '')), None)
+if not target_tab:
     print("Opening new tab https://gemini.google.com/app...")
     new_tab("https://gemini.google.com/app")
     wait(5)
 else:
-    tid = gemini_tab.get("targetId") or gemini_tab.get("target_id")
+    tid = target_tab.get("targetId") or target_tab.get("target_id")
     if tid:
         try: switch_tab(tid)
         except: pass
@@ -159,8 +160,8 @@ def get_img_count():
         res = js('''
         (() => {
             const imgs = Array.from(document.querySelectorAll('img')).filter(img => 
-                (img.naturalWidth > 250 || img.width > 250) && 
-                (img.src.startsWith('blob:') || img.src.includes('googleusercontent') || img.src.includes('generativeai'))
+                (img.naturalWidth > 200 || img.width > 200) && 
+                (img.src.startsWith('blob:') || img.src.includes('googleusercontent') || img.src.includes('generativeai') || img.src.includes('labs.google'))
             );
             return imgs.length;
         })()
@@ -190,7 +191,7 @@ def send_prompt_text(ptext):
     p_json = json.dumps(ptext)
     
     js_fill = '''(() => {
-        const el = document.querySelector('div[contenteditable="true"]') || document.querySelector('[role="textbox"]');
+        const el = document.querySelector('div[data-slate-editor="true"]') || document.querySelector('div[contenteditable="true"]') || document.querySelector('[role="textbox"]');
         if (el) {
             el.focus();
             document.execCommand('selectAll', false, null);
@@ -205,6 +206,20 @@ def send_prompt_text(ptext):
     
     js_send = '''(() => {
         const btns = Array.from(document.querySelectorAll('button'));
+        
+        // 1. 匹配 Google Labs Flow 的创建/生成按钮
+        const flowBtn = btns.find(b => {
+            if (b.disabled) return false;
+            const txt = (b.innerText || '').trim();
+            const aria = (b.getAttribute('aria-label') || '').trim();
+            return (txt.includes('arrow_forward') || txt.includes('创建') || txt.includes('Generate') || txt.includes('Create') || aria.includes('创建') || aria.includes('Generate'));
+        });
+        if (flowBtn) {
+            flowBtn.click();
+            return 'clicked_flow_btn';
+        }
+
+        // 2. 匹配 Gemini Web 的发送按钮
         const sendBtn = btns.find(b => {
             if (b.disabled) return false;
             const aria = (b.getAttribute('aria-label') || '').trim().toLowerCase();
@@ -214,9 +229,11 @@ def send_prompt_text(ptext):
         
         if (sendBtn) {
             sendBtn.click();
-            return 'clicked_btn';
+            return 'clicked_send_btn';
         }
-        const el = document.querySelector('div[contenteditable="true"]') || document.querySelector('[role="textbox"]');
+
+        // 3. Fallback 回车按键
+        const el = document.querySelector('div[data-slate-editor="true"]') || document.querySelector('div[contenteditable="true"]') || document.querySelector('[role="textbox"]');
         if (el) {
             el.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', code: 'Enter', keyCode: 13, which: 13, bubbles: true }));
             return 'dispatched_enter';
