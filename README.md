@@ -1,90 +1,75 @@
-# 🎨 Gemini 浏览器自动化高级生图项目 (D:\AI\image)
+# 🎨 AI 图片库
 
-本项目是一个基于 **Google Antigravity Agent** 驱动的**自动化高级感生图与感官美学提示词工作流**。通过将 AI 提示词生成、安全审查规避转译、Markdown 文档存档与 Chrome 浏览器自动化控制结合，实现**自然语言输入 ➔ 自动化分镜与提示词生成 ➔ 驱动 Chrome/Gemini 网页端在线生成连环画册**的全自动流程。
+这是一个适合 GitHub 直接浏览的 Markdown 画廊。点击图片即可查看原图。
 
----
+## 统计
+- 图片总数：100
+- 分类数：7
+- 仓库位置：`images/`
 
-## 🛠️ 环境依赖与安装指南 (Prerequisites & Installation)
+## 分类浏览
 
-在运行本项目前，请确保您的 Windows 系统已准备好以下环境依赖：
+### Gemini AI 创作
 
-### 1. 必备基础软件
-- **Python 3.10+** (推荐 Python 3.11/3.12)
-  - 检查命令：`python --version`
-- **uv / uvx** (高速 Python/Rust 工具运行器，用于免配置即时调用 `browser-harness`)
-  - 安装命令（若未安装）：`pip install uv` 或 `winget install astral-sh.uv`
-  - 检查命令：`uvx --version`
-- **browser-harness** (开源 Chrome 浏览器自动化控制工具)
-  - 官方项目：[browser-use/browser-harness (GitHub)](https://github.com/browser-use/browser-harness)
-  - **无需手动安装**：项目中 `run_gemini.py` 脚本使用 `uvx browser-harness` 命令，`uv` 会在首次运行时自动下载并按需加载；如需离线或手动全局安装，也可执行 `pip install browser-harness`。
-- **Google Chrome 浏览器**
-  - 请确保 Chrome 已安装，并且在 Chrome 中已登录您的 Google 账号，能正常打开使用 [Gemini 网页版](https://gemini.google.com/app)。
-- **Google Antigravity (AGY) CLI / IDE**
-  - 本项目的核心 Agent 运行平台。
+| 图片 | 图片 | 图片 |
+|---|---|---|
+| <img src="images/Gemini_Generated_Image_1esa5k1esa5k1esa.png" alt="Gemini_Generated_Image_1esa5k1esa5k1esa.png" width="240" /><br><small>Gemini_Generated_Imag...</small> | <img src="images/Gemini_Generated_Image_1qhz591qhz591qhz.png" alt="Gemini_Generated_Image_1qhz591qhz591qhz.png" width="240" /><br><small>Gemini_Generated_Imag...</small> | <img src="images/Gemini_Generated_Image_1syach1syach1sya.png" alt="Gemini_Generated_Image_1syach1syach1sya.png" width="240" /><br><small>Gemini_Generated_Imag...</small> |
+| <img src="images/Gemini_Generated_Image_2fkxl22fkxl22fkx.png" alt="Gemini_Generated_Image_2fkxl22fkxl22fkx.png" width="240" /><br><small>Gemini_Generated_Imag...</small> | <img src="images/Gemini_Generated_Image_3nvl8r3nvl8r3nvl.png" alt="Gemini_Generated_Image_3nvl8r3nvl8r3nvl.png" width="240" /><br><small>Gemini_Generated_Imag...</small> | <img src="images/Gemini_Generated_Image_3wfrze3wfrze3wfr.png" alt="Gemini_Generated_Image_3wfrze3wfrze3wfr.png" width="240" /><br><small>Gemini_Generated_Imag...</small> |
+| <img src="images/Gemini_Generated_Image_4ohjpw4ohjpw4ohj.png" alt="Gemini_Generated_Image_4ohjpw4ohjpw4ohj.png" width="240" /><br><small>Gemini_Generated_Imag...</small> | <img src="images/Gemini_Generated_Image_4wphyd4wphyd4wph.png" alt="Gemini_Generated_Image_4wphyd4wphyd4wph.png" width="240" /><br><small>Gemini_Generated_Imag...</small> | <img src="images/Gemini_Generated_Image_5tuzix5tuzix5tuz.png" alt="Gemini_Generated_Image_5tuzix5tuzix5tuz.png" width="240" /><br><small>Gemini_Generated_Imag...</small> |
+| <img src="images/Gemini_Generated_Image_6vdxhy6vdxhy6vdx.png" alt="Gemini_Generated_Image_6vdxhy6vdxhy6vdx.png" width="240" /><br><small>Gemini_Generated_Imag...</small> | <img src="images/Gemini_Generated_Image_6xoqjp6xoqjp6xoq.png" alt="Gemini_Generated_Image_6xoqjp6xoqjp6xoq.png" width="240" /><br><small>Gemini_Generated_Imag...</small> | <img src="images/Gemini_Generated_Image_71nuyv71nuyv71nu.png" alt="Gemini_Generated_Image_71nuyv71nuyv71nu.png" width="240" /><br><small>Gemini_Generated_Imag...</small> |
+| <img src="images/Gemini_Generated_Image_7812b97812b97812.png" alt="Gemini_Generated_Image_7812b97812b97812.png" width="240" /><br><small>Gemini_Generated_Imag...</small> | <img src="images/Gemini_Generated_Image_7fs0s87fs0s87fs0.png" alt="Gemini_Generated_Image_7fs0s87fs0s87fs0.png" width="240" /><br><small>Gemini_Generated_Imag...</small> | <img src="images/Gemini_Generated_Image_821t30821t30821t.png" alt="Gemini_Generated_Image_821t30821t30821t.png" width="240" /><br><small>Gemini_Generated_Imag...</small> |
+| <img src="images/Gemini_Generated_Image_8f8mca8f8mca8f8m.png" alt="Gemini_Generated_Image_8f8mca8f8mca8f8m.png" width="240" /><br><small>Gemini_Generated_Imag...</small> | <img src="images/Gemini_Generated_Image_93tlem93tlem93tl.png" alt="Gemini_Generated_Image_93tlem93tlem93tl.png" width="240" /><br><small>Gemini_Generated_Imag...</small> | <img src="images/Gemini_Generated_Image_97opvy97opvy97op.png" alt="Gemini_Generated_Image_97opvy97opvy97op.png" width="240" /><br><small>Gemini_Generated_Imag...</small> |
+| <img src="images/Gemini_Generated_Image_99ajpv99ajpv99aj.png" alt="Gemini_Generated_Image_99ajpv99ajpv99aj.png" width="240" /><br><small>Gemini_Generated_Imag...</small> | <img src="images/Gemini_Generated_Image_9fqz999fqz999fqz.png" alt="Gemini_Generated_Image_9fqz999fqz999fqz.png" width="240" /><br><small>Gemini_Generated_Imag...</small> | <img src="images/Gemini_Generated_Image_9lrzbn9lrzbn9lrz.png" alt="Gemini_Generated_Image_9lrzbn9lrzbn9lrz.png" width="240" /><br><small>Gemini_Generated_Imag...</small> |
+| <img src="images/Gemini_Generated_Image_9vda1y9vda1y9vda.png" alt="Gemini_Generated_Image_9vda1y9vda1y9vda.png" width="240" /><br><small>Gemini_Generated_Imag...</small> | <img src="images/Gemini_Generated_Image_a84tv3a84tv3a84t.png" alt="Gemini_Generated_Image_a84tv3a84tv3a84t.png" width="240" /><br><small>Gemini_Generated_Imag...</small> | <img src="images/Gemini_Generated_Image_cgzkocgzkocgzkoc.png" alt="Gemini_Generated_Image_cgzkocgzkocgzkoc.png" width="240" /><br><small>Gemini_Generated_Imag...</small> |
+| <img src="images/Gemini_Generated_Image_ch2hk1ch2hk1ch2h.png" alt="Gemini_Generated_Image_ch2hk1ch2hk1ch2h.png" width="240" /><br><small>Gemini_Generated_Imag...</small> | <img src="images/Gemini_Generated_Image_cixrckcixrckcixr.png" alt="Gemini_Generated_Image_cixrckcixrckcixr.png" width="240" /><br><small>Gemini_Generated_Imag...</small> | <img src="images/Gemini_Generated_Image_d3046dd3046dd304.png" alt="Gemini_Generated_Image_d3046dd3046dd304.png" width="240" /><br><small>Gemini_Generated_Imag...</small> |
+| <img src="images/Gemini_Generated_Image_d7vy6id7vy6id7vy.png" alt="Gemini_Generated_Image_d7vy6id7vy6id7vy.png" width="240" /><br><small>Gemini_Generated_Imag...</small> | <img src="images/Gemini_Generated_Image_e3vutge3vutge3vu.png" alt="Gemini_Generated_Image_e3vutge3vutge3vu.png" width="240" /><br><small>Gemini_Generated_Imag...</small> | <img src="images/Gemini_Generated_Image_e6moyae6moyae6mo.png" alt="Gemini_Generated_Image_e6moyae6moyae6mo.png" width="240" /><br><small>Gemini_Generated_Imag...</small> |
+| <img src="images/Gemini_Generated_Image_eyouqleyouqleyou.png" alt="Gemini_Generated_Image_eyouqleyouqleyou.png" width="240" /><br><small>Gemini_Generated_Imag...</small> | <img src="images/Gemini_Generated_Image_f041gwf041gwf041.png" alt="Gemini_Generated_Image_f041gwf041gwf041.png" width="240" /><br><small>Gemini_Generated_Imag...</small> | <img src="images/Gemini_Generated_Image_ffsol3ffsol3ffso.png" alt="Gemini_Generated_Image_ffsol3ffsol3ffso.png" width="240" /><br><small>Gemini_Generated_Imag...</small> |
+| <img src="images/Gemini_Generated_Image_fjxsqtfjxsqtfjxs.png" alt="Gemini_Generated_Image_fjxsqtfjxsqtfjxs.png" width="240" /><br><small>Gemini_Generated_Imag...</small> | <img src="images/Gemini_Generated_Image_hu5afqhu5afqhu5a.png" alt="Gemini_Generated_Image_hu5afqhu5afqhu5a.png" width="240" /><br><small>Gemini_Generated_Imag...</small> | <img src="images/Gemini_Generated_Image_hxmrpehxmrpehxmr.png" alt="Gemini_Generated_Image_hxmrpehxmrpehxmr.png" width="240" /><br><small>Gemini_Generated_Imag...</small> |
+| <img src="images/Gemini_Generated_Image_hygr2whygr2whygr.png" alt="Gemini_Generated_Image_hygr2whygr2whygr.png" width="240" /><br><small>Gemini_Generated_Imag...</small> | <img src="images/Gemini_Generated_Image_i0j7cpi0j7cpi0j7.png" alt="Gemini_Generated_Image_i0j7cpi0j7cpi0j7.png" width="240" /><br><small>Gemini_Generated_Imag...</small> | <img src="images/Gemini_Generated_Image_jct4o4jct4o4jct4.png" alt="Gemini_Generated_Image_jct4o4jct4o4jct4.png" width="240" /><br><small>Gemini_Generated_Imag...</small> |
+| <img src="images/Gemini_Generated_Image_jzk3vnjzk3vnjzk3.png" alt="Gemini_Generated_Image_jzk3vnjzk3vnjzk3.png" width="240" /><br><small>Gemini_Generated_Imag...</small> | <img src="images/Gemini_Generated_Image_kiy3rhkiy3rhkiy3.png" alt="Gemini_Generated_Image_kiy3rhkiy3rhkiy3.png" width="240" /><br><small>Gemini_Generated_Imag...</small> | <img src="images/Gemini_Generated_Image_ljzpzljzpzljzpzl.png" alt="Gemini_Generated_Image_ljzpzljzpzljzpzl.png" width="240" /><br><small>Gemini_Generated_Imag...</small> |
+| <img src="images/Gemini_Generated_Image_met2bjmet2bjmet2.png" alt="Gemini_Generated_Image_met2bjmet2bjmet2.png" width="240" /><br><small>Gemini_Generated_Imag...</small> | <img src="images/Gemini_Generated_Image_p12uwhp12uwhp12u.png" alt="Gemini_Generated_Image_p12uwhp12uwhp12u.png" width="240" /><br><small>Gemini_Generated_Imag...</small> | <img src="images/Gemini_Generated_Image_pasqfkpasqfkpasq.png" alt="Gemini_Generated_Image_pasqfkpasqfkpasq.png" width="240" /><br><small>Gemini_Generated_Imag...</small> |
+| <img src="images/Gemini_Generated_Image_pjyw64pjyw64pjyw.png" alt="Gemini_Generated_Image_pjyw64pjyw64pjyw.png" width="240" /><br><small>Gemini_Generated_Imag...</small> | <img src="images/Gemini_Generated_Image_ppw9ssppw9ssppw9.png" alt="Gemini_Generated_Image_ppw9ssppw9ssppw9.png" width="240" /><br><small>Gemini_Generated_Imag...</small> | <img src="images/Gemini_Generated_Image_puq2uxpuq2uxpuq2.png" alt="Gemini_Generated_Image_puq2uxpuq2uxpuq2.png" width="240" /><br><small>Gemini_Generated_Imag...</small> |
+| <img src="images/Gemini_Generated_Image_q130h3q130h3q130.png" alt="Gemini_Generated_Image_q130h3q130h3q130.png" width="240" /><br><small>Gemini_Generated_Imag...</small> | <img src="images/Gemini_Generated_Image_qdxpgwqdxpgwqdxp.png" alt="Gemini_Generated_Image_qdxpgwqdxpgwqdxp.png" width="240" /><br><small>Gemini_Generated_Imag...</small> | <img src="images/Gemini_Generated_Image_qjcj6bqjcj6bqjcj.png" alt="Gemini_Generated_Image_qjcj6bqjcj6bqjcj.png" width="240" /><br><small>Gemini_Generated_Imag...</small> |
+| <img src="images/Gemini_Generated_Image_r26dc2r26dc2r26d.png" alt="Gemini_Generated_Image_r26dc2r26dc2r26d.png" width="240" /><br><small>Gemini_Generated_Imag...</small> | <img src="images/Gemini_Generated_Image_r5qudhr5qudhr5qu.png" alt="Gemini_Generated_Image_r5qudhr5qudhr5qu.png" width="240" /><br><small>Gemini_Generated_Imag...</small> | <img src="images/Gemini_Generated_Image_rdcmjfrdcmjfrdcm.png" alt="Gemini_Generated_Image_rdcmjfrdcmjfrdcm.png" width="240" /><br><small>Gemini_Generated_Imag...</small> |
+| <img src="images/Gemini_Generated_Image_rgxl0jrgxl0jrgxl.png" alt="Gemini_Generated_Image_rgxl0jrgxl0jrgxl.png" width="240" /><br><small>Gemini_Generated_Imag...</small> | <img src="images/Gemini_Generated_Image_s0f81gs0f81gs0f8.png" alt="Gemini_Generated_Image_s0f81gs0f81gs0f8.png" width="240" /><br><small>Gemini_Generated_Imag...</small> | <img src="images/Gemini_Generated_Image_sc88xmsc88xmsc88.png" alt="Gemini_Generated_Image_sc88xmsc88xmsc88.png" width="240" /><br><small>Gemini_Generated_Imag...</small> |
+| <img src="images/Gemini_Generated_Image_ssbek0ssbek0ssbe.png" alt="Gemini_Generated_Image_ssbek0ssbek0ssbe.png" width="240" /><br><small>Gemini_Generated_Imag...</small> | <img src="images/Gemini_Generated_Image_u08rb0u08rb0u08r.png" alt="Gemini_Generated_Image_u08rb0u08rb0u08r.png" width="240" /><br><small>Gemini_Generated_Imag...</small> | <img src="images/Gemini_Generated_Image_u202hhu202hhu202.png" alt="Gemini_Generated_Image_u202hhu202hhu202.png" width="240" /><br><small>Gemini_Generated_Imag...</small> |
+| <img src="images/Gemini_Generated_Image_u4wppzu4wppzu4wp.png" alt="Gemini_Generated_Image_u4wppzu4wppzu4wp.png" width="240" /><br><small>Gemini_Generated_Imag...</small> | <img src="images/Gemini_Generated_Image_vjn84zvjn84zvjn8.png" alt="Gemini_Generated_Image_vjn84zvjn84zvjn8.png" width="240" /><br><small>Gemini_Generated_Imag...</small> | <img src="images/Gemini_Generated_Image_wisoafwisoafwiso.png" alt="Gemini_Generated_Image_wisoafwisoafwiso.png" width="240" /><br><small>Gemini_Generated_Imag...</small> |
+| <img src="images/Gemini_Generated_Image_wsvu8hwsvu8hwsvu.png" alt="Gemini_Generated_Image_wsvu8hwsvu8hwsvu.png" width="240" /><br><small>Gemini_Generated_Imag...</small> | <img src="images/Gemini_Generated_Image_ww9zhbww9zhbww9z.png" alt="Gemini_Generated_Image_ww9zhbww9zhbww9z.png" width="240" /><br><small>Gemini_Generated_Imag...</small> | <img src="images/Gemini_Generated_Image_x14dt3x14dt3x14d.png" alt="Gemini_Generated_Image_x14dt3x14dt3x14d.png" width="240" /><br><small>Gemini_Generated_Imag...</small> |
+| <img src="images/Gemini_Generated_Image_x55k29x55k29x55k.png" alt="Gemini_Generated_Image_x55k29x55k29x55k.png" width="240" /><br><small>Gemini_Generated_Imag...</small> | <img src="images/Gemini_Generated_Image_xqs0i9xqs0i9xqs0.png" alt="Gemini_Generated_Image_xqs0i9xqs0i9xqs0.png" width="240" /><br><small>Gemini_Generated_Imag...</small> | &nbsp; |
+### 邯郸梦境
 
-### 2. 浏览器准备 (启动要求)
-在进行自动化生图前：
-- **强烈推荐**：提前在 Chrome 中打开并切到 `https://gemini.google.com/app` 页面。
-- 自动化脚本 `run_gemini.py` 会通过 `uvx browser-harness` 自动定位已打开的 Gemini 标签页；若未打开，脚本会自动新建标签页并导航至 Gemini。
+| 图片 | 图片 | 图片 |
+|---|---|---|
+| <img src="images/handan_p1_qiao_tou_kui_1785299912478.png" alt="handan_p1_qiao_tou_kui_1785299912478.png" width="240" /><br><small>handan_p1_qiao_tou_ku...</small> | <img src="images/handan_p2_bi_wan_xiang_ni_1785299924068.png" alt="handan_p2_bi_wan_xiang_ni_1785299924068.png" width="240" /><br><small>handan_p2_bi_wan_xian...</small> | <img src="images/handan_p3_ming_xia_xue_ji_1785299945755.png" alt="handan_p3_ming_xia_xue_ji_1785299945755.png" width="240" /><br><small>handan_p3_ming_xia_xu...</small> |
+| <img src="images/handan_p4_su_tou_beilei_1785299956636.png" alt="handan_p4_su_tou_beilei_1785299956636.png" width="240" /><br><small>handan_p4_su_tou_beil...</small> | <img src="images/handan_p5_hong_jin_xia_xi_1785299967271.png" alt="handan_p5_hong_jin_xia_xi_1785299967271.png" width="240" /><br><small>handan_p5_hong_jin_xi...</small> | <img src="images/handan_p5_more_direct_1785301651776.png" alt="handan_p5_more_direct_1785301651776.png" width="240" /><br><small>handan_p5_more_direct...</small> |
+| <img src="images/handan_p6_handan_jiao_hui_1785299978041.png" alt="handan_p6_handan_jiao_hui_1785299978041.png" width="240" /><br><small>handan_p6_handan_jiao...</small> | &nbsp; | &nbsp; |
+### 露滴牡丹
 
----
+| 图片 | 图片 | 图片 |
+|---|---|---|
+| <img src="images/ludi_mudan_p1_ban_tui_ban_jiu_1785299513750.png" alt="ludi_mudan_p1_ban_tui_ban_jiu_1785299513750.png" width="240" /><br><small>ludi_mudan_p1_ban_tui...</small> | <img src="images/ludi_mudan_p2_nen_rui_jiao_xiang_1785299525893.png" alt="ludi_mudan_p2_nen_rui_jiao_xiang_1785299525893.png" width="240" /><br><small>ludi_mudan_p2_nen_rui...</small> | <img src="images/ludi_mudan_p3_jiang_liu_yao_kuan_bai_1785299537435.png" alt="ludi_mudan_p3_jiang_liu_yao_kuan_bai_1785299537435.png" width="240" /><br><small>ludi_mudan_p3_jiang_l...</small> |
+| <img src="images/ludi_mudan_p4_hua_xin_qing_chai_1785299548726.png" alt="ludi_mudan_p4_hua_xin_qing_chai_1785299548726.png" width="240" /><br><small>ludi_mudan_p4_hua_xin...</small> | <img src="images/ludi_mudan_p5_yu_shui_he_xie_1785299560607.png" alt="ludi_mudan_p5_yu_shui_he_xie_1785299560607.png" width="240" /><br><small>ludi_mudan_p5_yu_shui...</small> | <img src="images/ludi_mudan_p6_xiang_sai_yu_wen_1785299569776.png" alt="ludi_mudan_p6_xiang_sai_yu_wen_1785299569776.png" width="240" /><br><small>ludi_mudan_p6_xiang_s...</small> |
+### 桃红柳绿
 
-## 📂 项目目录结构 (Directory Architecture)
+| 图片 | 图片 | 图片 |
+|---|---|---|
+| <img src="images/peach_willow_p1_1785199464543.png" alt="peach_willow_p1_1785199464543.png" width="240" /><br><small>peach_willow_p1_17851...</small> | <img src="images/peach_willow_p2_1785199642720.png" alt="peach_willow_p2_1785199642720.png" width="240" /><br><small>peach_willow_p2_17851...</small> | <img src="images/peach_willow_p3_1785199650331.png" alt="peach_willow_p3_1785199650331.png" width="240" /><br><small>peach_willow_p3_17851...</small> |
+| <img src="images/peach_willow_p4_1785199658502.png" alt="peach_willow_p4_1785199658502.png" width="240" /><br><small>peach_willow_p4_17851...</small> | <img src="images/peach_willow_p5_1785199666134.png" alt="peach_willow_p5_1785199666134.png" width="240" /><br><small>peach_willow_p5_17851...</small> | <img src="images/peach_willow_p6_1785199675038.png" alt="peach_willow_p6_1785199675038.png" width="240" /><br><small>peach_willow_p6_17851...</small> |
+### 书房月影
 
-```text
-D:\AI\image\
-├── README.md                           ← 本项目使用说明文档
-├── AGENTS.md                           ← 项目级强制硬规则（拦截生图并路由至技能）
-├── .agents/skills/                     ← 项目专属技能库 (Skills Matrix)
-│   ├── gemini-browser-auto-illustrator/
-│   │   ├── SKILL.md                    ← 自动化生图主控编排规范
-│   │   └── scripts/run_gemini.py       ← 驱动 Chrome/Gemini 的核心 Python 脚本
-│   ├── erotic-prompt-generator/
-│   │   └── SKILL.md                    ← 古典香艳/露骨文本转译与审查规避技能
-│   └── aesthetic-prompt-generator/
-│       └── SKILL.md                    ← 20大视觉流派/非色情美学提示词生成技能
-├── prompt/                             ← 自动保存生成的提示词 Markdown 文件 (YYYYMMDD_HHMM_*.md)
-├── images/                             ← 本地保存或整理的生成的图片文件
-└── videos/                             ← 生成的动态视频成果
-```
+| 图片 | 图片 | 图片 |
+|---|---|---|
+| <img src="images/study_moonlight_p1_1785199454288.png" alt="study_moonlight_p1_1785199454288.png" width="240" /><br><small>study_moonlight_p1_17...</small> | <img src="images/study_moonlight_p2_1785199564117.png" alt="study_moonlight_p2_1785199564117.png" width="240" /><br><small>study_moonlight_p2_17...</small> | <img src="images/study_moonlight_p3_1785199474853.png" alt="study_moonlight_p3_1785199474853.png" width="240" /><br><small>study_moonlight_p3_17...</small> |
+| <img src="images/study_moonlight_p4_1785199572859.png" alt="study_moonlight_p4_1785199572859.png" width="240" /><br><small>study_moonlight_p4_17...</small> | <img src="images/study_moonlight_p5_1785199580806.png" alt="study_moonlight_p5_1785199580806.png" width="240" /><br><small>study_moonlight_p5_17...</small> | <img src="images/study_moonlight_p6_1785199589403.png" alt="study_moonlight_p6_1785199589403.png" width="240" /><br><small>study_moonlight_p6_17...</small> |
+### 含蓄情致
 
----
+| 图片 | 图片 | 图片 |
+|---|---|---|
+| <img src="images/p1_yi_tui_ban_han_xiu_1785377602799.jpg" alt="p1_yi_tui_ban_han_xiu_1785377602799.jpg" width="240" /><br><small>p1_yi_tui_ban_han_xiu...</small> | <img src="images/p2_yan_zhi_tou_1785377622689.jpg" alt="p2_yan_zhi_tou_1785377622689.jpg" width="240" /><br><small>p2_yan_zhi_tou_178537...</small> | <img src="images/p3_tao_hua_gou_1785377635031.jpg" alt="p3_tao_hua_gou_1785377635031.jpg" width="240" /><br><small>p3_tao_hua_gou_178537...</small> |
+| <img src="images/p4_feng_liu_xiao_shou_1785377645537.jpg" alt="p4_feng_liu_xiao_shou_1785377645537.jpg" width="240" /><br><small>p4_feng_liu_xiao_shou...</small> | <img src="images/p5_wu_yun_ban_duo_1785377654890.jpg" alt="p5_wu_yun_ban_duo_1785377654890.jpg" width="240" /><br><small>p5_wu_yun_ban_duo_178...</small> | &nbsp; |
+### 古典工笔
 
-## 🚀 使用流程与工作说明 (Workflow & Usage)
+| 图片 | 图片 | 图片 |
+|---|---|---|
+| <img src="images/erotic-《風流絕暢·喚莊生》.png" alt="erotic-《風流絕暢·喚莊生》.png" width="240" /><br><small>erotic-《風流絕暢·喚莊生》.png</small> | <img src="images/tang_lady_gongbi.jpg" alt="tang_lady_gongbi.jpg" width="240" /><br><small>tang_lady_gongbi.jpg</small> | &nbsp; |
 
-### 1. 触发方式（全自动自然语言）
-在新会话中将工作目录定位至 `D:\AI\image`，直接向 Agent 发送指令即可，**无需记忆复杂命令**：
-
-- **通用生图示例**：
-  > “生图，杜甫《绝句》两个黄鹂鸣翠柳”
-  > “画图，新中式水墨风格的苏州园林雨景”
-- **香艳/古典情致生图示例**：
-  > “生图，情色 座上香盈果满车，谁家年少润无瑕...”
-
-### 2. 自动化执行逻辑 (Behind the Scenes)
-当输入包含 `生图`、`画图`、`配图`、`生成图片` 等触发词时：
-1. **硬规则拦截**：`AGENTS.md` 阻止 Agent 调用本地短路工具 `generate_image`。
-2. **智能双轨路由**：
-   - 识别到`情色` / `香艳` 关键词 $\rightarrow$ 跨 Skill 调用 `erotic-prompt-generator` 执行安全隐喻转译（湿纱贴体、肢体张力特写、影子折射、器物双关）。
-   - 通用风雅 / 写实场景 $\rightarrow$ 跨 Skill 调用 `aesthetic-prompt-generator` 注入相机参数、高级光影与渲染器。
-3. **保存 Markdown**：自动将提示词保存至 `D:\AI\image\prompt\YYYYMMDD_HHMM_<主题>_<N>图提示词.md`。
-4. **浏览器自动化出图**：后台自动运行：
-   ```bash
-   python D:\AI\image\.agents\skills\gemini-browser-auto-illustrator\scripts\run_gemini.py --markdown "D:\AI\image\prompt\<文件名>.md"
-   ```
-   脚本通过 `browser-harness` 自动定位 Chrome 中的 Gemini 标签页，以“发送Prompt ➔ 监测生成 ➔ 静置5秒 ➔ 下一张”的节奏在线完成整套画册出图。
-
----
-
-## ❓ 常见问题与故障排查 (Troubleshooting)
-
-### Q1: 提示 `[任务排队中...] 检测到前序生图任务仍在运行`？
-- **原理**：脚本内置了文件排队锁 `prompt/.gemini_runner.lock`，防止多个生图任务同时向 Gemini 输入打字导致冲突。
-- **解决**：等待前序任务完成即可自动接替；若前序任务异常中断锁未释放，锁会在 10 分钟后自动超时清理，也可手动删除 `D:\AI\image\prompt\.gemini_runner.lock` 文件。
-
-### Q2: 为什么生成完后本地目录没有下载 PNG 图片？
-- **规范说明**：本项目遵循**纯在线呈现与免下载规范**。生图全部在 Chrome 的 Gemini 官方页面中渲染，直接保留在 Chrome 控制台中供放大浏览，避免下载大量临时图片占用本地空间（若需要某些图片可直接在网页右键保存）。
-
-### Q3: 修改或自定义技能规则该去哪里？
-- 若需要修改生图核心脚本与节奏 $\rightarrow$ 编辑 `D:\AI\image\.agents\skills\gemini-browser-auto-illustrator\scripts\run_gemini.py`
-- 若需要调整触发生图的规则逻辑 $\rightarrow$ 编辑 `D:\AI\image\AGENTS.md` 与 `SKILL.md`
