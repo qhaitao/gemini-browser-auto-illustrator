@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI 图片画廊</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background: #0f172a; color: #f8fafc; }
+    .wrap { max-width: 1400px; margin: 0 auto; padding: 24px; }
+    h1 { margin-bottom: 8px; }
+    p { color: #cbd5e1; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; margin-top: 24px; }
+    .card { background: #111827; border: 1px solid #334155; border-radius: 12px; padding: 10px; }
+    .card img { width: 100%; height: auto; display: block; border-radius: 8px; }
+    .card .name { margin-top: 8px; font-size: 12px; color: #cbd5e1; word-break: break-all; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>AI 图片画廊</h1>
+    <p>这是一个独立展示页，图片不再放在 README 中。</p>
+    <div class="grid" id="gallery"></div>
+  </div>
+  <script>
+    const images = [
+      'images/Gemini_Generated_Image_1esa5k1esa5k1esa.png',
+      'images/handan_p1_qiao_tou_kui_1785299912478.png',
+      'images/ludi_mudan_p1_ban_tui_ban_jiu_1785299513750.png',
+      'images/peach_willow_p1_1785199464543.png',
+      'images/study_moonlight_p1_1785199454288.png',
+      'images/tang_lady_gongbi.jpg'
+    ];
+    const gallery = document.getElementById('gallery');
+    gallery.innerHTML = images.map((src) => {
+      const name = src.split('/').pop();
+      return `<div class="card"><a href="${src}" target="_blank"><img src="${src}" alt="${name}" /></a><div class="name">${name}</div></div>`;
+    }).join('');
+  </script>
+</body>
+</html>
